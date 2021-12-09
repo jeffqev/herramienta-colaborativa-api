@@ -68,7 +68,7 @@ app.post('/upload', (req, res) => {
     }
 
     res.json({
-      location: `https://quicklab-api.grupoia.ec/images/${nuevoNombre}`,
+      location: `${req.protocol}://${req.get('host')}/images/${nuevoNombre}`,
     })
   })
 })
@@ -76,5 +76,5 @@ app.post('/upload', (req, res) => {
 // Levantar servidor
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
-  console.log(`escuchando en ${process.env.PORT} https://quicklab-api.grupoia.ec`)
+  console.log(`escuchando en ${process.env.PORT}`)
 })
